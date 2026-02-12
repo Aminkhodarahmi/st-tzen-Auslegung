@@ -179,29 +179,25 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
 <body>
 <div class="wrap">
 
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="lang-grp">
-      <button class="lbtn on" id="lbtn-en" onclick="setLang('en')">English</button>
-      <button class="lbtn"    id="lbtn-de" onclick="setLang('de')">Deutsch</button>
+  <!-- TOPBAR with brand left, controls right -->
+  <div class="topbar" style="align-items:flex-start;">
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:2px;">
+      <a href="https://www.stopa.com/" target="_blank" style="text-decoration:none;">
+        <span class="brand-name" style="font-size:32px;">STOPA</span>
+      </a>
+      <h1 data-en="Column Selection Tool" data-de="Stützenauswahl-Werkzeug" style="font-size:16px;margin:0;">Stützenauswahl-Werkzeug</h1>
+      <p class="sub" data-en="HEB steel column selection for automated warehouse systems"
+                     data-de="HEB-Stahlstützenauswahl für automatische Hochregallager" style="margin:0;">
+        HEB-Stahlstützenauswahl für automatische Hochregallager</p>
     </div>
     <div class="theme-row">
-      <span class="theme-label" data-en="Dark Mode" data-de="Dunkelmodus">Dark Mode</span>
+      <span class="theme-label" data-en="Dark Mode" data-de="Dunkelmodus">Dunkelmodus</span>
       <div class="sw" onclick="document.body.classList.toggle('dark')"></div>
+      <select id="lang-sel" onchange="setLang(this.value)" style="margin-left:14px;padding:5px 10px;border:2px solid var(--border);border-radius:5px;background:var(--step);color:var(--text);font-size:12px;font-weight:700;cursor:pointer;">
+        <option value="de" selected>🇩🇪 Deutsch</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
     </div>
-  </div>
-
-  <!-- BRAND -->
-  <div class="brand">
-    <div class="brand-logo-row">
-      <a href="https://www.stopa.com/" target="_blank">
-        <span class="brand-name">STOPA</span>
-      </a>
-    </div>
-    <h1 data-en="Column Selection Tool" data-de="Stützenauswahl-Werkzeug">Column Selection Tool</h1>
-    <p class="sub" data-en="HEB steel column selection for automated warehouse systems"
-                   data-de="HEB-Stahlstützenauswahl für automatische Lagersysteme">
-      HEB steel column selection for automated warehouse systems</p>
   </div>
 
   <!-- TWO-COLUMN LAYOUT -->
@@ -209,6 +205,18 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
 
     <!-- ══ LEFT: STEPS ══ -->
     <div class="steps">
+
+    <!-- PROJECT NAME -->
+    <div class="step" id="s0">
+      <div class="step-head">
+        <div class="num" style="background:var(--muted);">P</div>
+        <div>
+          <div class="stitle" data-en="Project Name" data-de="Projektname">Projektname</div>
+          <div class="ssub" data-en="Optional – for display only" data-de="Optional – nur zur Anzeige">Optional – nur zur Anzeige</div>
+        </div>
+      </div>
+      <input class="inp" type="text" id="proj-name" placeholder="z.B. Projekt München 2026" oninput="calc()">
+    </div>
 
       <!-- STEP 1: LAGER -->
       <div class="step" id="s1">
@@ -328,13 +336,15 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
 
       <!-- Result card -->
       <div class="result-box" id="rbox">
-        <div class="r-section" data-en="WAREHOUSE SYSTEM" data-de="LAGERSYSTEM">WAREHOUSE SYSTEM</div>
+        <div class="r-section" data-en="PROJECT" data-de="PROJEKT">PROJEKT</div>
+        <div class="r-row"><span class="r-lbl" data-en="Project Name" data-de="Projektname">Projektname</span><span class="r-val" id="r-projname" style="font-style:italic;color:rgba(255,255,255,.7)">–</span></div>
+        <div class="r-section" data-en="WAREHOUSE SYSTEM" data-de="LAGERSYSTEM">LAGERSYSTEM</div>
         <div class="r-row"><span class="r-lbl">Lager</span><span class="r-val" id="r-lager">TKL Flex</span></div>
         <div class="r-row"><span class="r-lbl" data-en="Type" data-de="Typ">Type</span><span class="r-val" id="r-type">GF</span></div>
         <div class="r-row"><span class="r-lbl">Variante</span><span class="r-val" id="r-var">LMS</span></div>
 
         <div class="r-section" data-en="COLUMN SPECIFICATION" data-de="STÜTZENSPEZIFIKATION">COLUMN SPECIFICATION</div>
-        <div class="r-row"><span class="r-lbl">Stütze</span><span class="r-val big" id="r-stutze">HEB 180</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Column Section" data-de="Stütze">Stütze</span><span class="r-val big" id="r-stutze">HEB 180</span></div>
         <div class="r-row"><span class="r-lbl">Material</span><span class="r-val" id="r-mat">S355</span></div>
         <div class="r-row"><span class="r-lbl">Palettenplatz</span><span class="r-val" id="r-palet">–</span></div>
 
@@ -364,6 +374,11 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
 
     </div><!-- /right -->
   </div><!-- /layout -->
+
+  <div style="text-align:center;margin-top:14px;padding-top:10px;border-top:1px solid var(--step);font-size:11px;color:var(--muted);letter-spacing:.5px;">
+    Developed by <strong>Amin Khodarahmi</strong>
+  </div>
+
 </div><!-- /wrap -->
 
 <!-- FULL DATA MODAL -->
@@ -392,16 +407,15 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
 
 <script>
 /* ── i18n ── */
-let LANG = 'en';
+let LANG = 'de';
 function setLang(l){
   LANG = l;
-  document.getElementById('lbtn-en').classList.toggle('on', l==='en');
-  document.getElementById('lbtn-de').classList.toggle('on', l==='de');
   document.querySelectorAll('[data-en]').forEach(el=>{
     const t = el.getAttribute('data-'+l);
     if(t) el.textContent = t;
   });
-  document.getElementById('manual-opt').textContent = l==='en' ? 'Manual input …' : 'Manuelle Eingabe …';
+  const mo = document.getElementById('manual-opt');
+  if(mo) mo.textContent = l==='en' ? 'Manual input …' : 'Manuelle Eingabe …';
 }
 
 /* ── STATE ── */
@@ -592,9 +606,15 @@ function calc(){
   document.getElementById('r-type').textContent  = S.lagerType;
   document.getElementById('r-var').textContent   = S.variante;
   document.getElementById('r-mat').textContent   = 'S355';
+  const pn = document.getElementById('proj-name').value.trim();
+  document.getElementById('r-projname').textContent = pn || '–';
 
   const dev = isDev();
   document.getElementById('dev-note').style.display = dev ? 'block' : 'none';
+  const pdfBtn = document.querySelector('.btn-pdf');
+  pdfBtn.disabled = dev;
+  pdfBtn.style.opacity = dev ? '0.4' : '1';
+  pdfBtn.style.cursor = dev ? 'not-allowed' : 'pointer';
 
   if(dev){
     document.getElementById('r-stutze').textContent = '–';
@@ -661,7 +681,8 @@ function exportPDF(){
   const row = (label, value, big=false)=>{
     doc.setFont('helvetica','normal'); doc.setFontSize(10); doc.setTextColor(100,100,100);
     doc.text(label+':', 14, y);
-    doc.setFont('helvetica','bold');  doc.setTextColor(big?[180,120,0]:[20,20,20]);
+    doc.setFont('helvetica','bold');
+    if(big){ doc.setTextColor(180,120,0); } else { doc.setTextColor(20,20,20); }
     doc.setFontSize(big ? 13 : 10);
     doc.text(String(value), 80, y);
     y += big ? 9 : 7;
@@ -673,17 +694,26 @@ function exportPDF(){
     doc.setDrawColor(30,60,114); doc.setLineWidth(.3); doc.line(14, y, 196, y); y += 4;
   };
 
+  sect(lbl ? 'Project' : 'Projekt');
+  const projName = document.getElementById('proj-name').value.trim();
+  row(lbl?'Project Name':'Projektname', projName || '–');
+
   sect(lbl ? 'Warehouse System' : 'Lagersystem');
   row('Lager',     S.lager);
   row(lbl?'Type':'Typ', S.lagerType);
   row('Variante',  S.variante);
 
   sect(lbl ? 'Column Specification' : 'Stützenspezifikation');
-  row('Stütze',        getHEB(), true);
-  row('Material',      'S355');
-  row('Palettenplatz', PALET[S.variante]||'–');
+  row(lbl ? 'Column Section' : 'Stütze', getHEB(), true);
+  row('Material', 'S355');
+  // Get PP from lookup tables
+  let ppVal = '–';
+  if(S.variante==='DOPPEL'){ const r=DOPPEL_TABLE['0.25'].find(r=>S.height<=r.h); ppVal=r?r.pp:DOPPEL_TABLE['0.25'].slice(-1)[0].pp; }
+  else if(S.variante==='LMS'){ const rows=LMS_TABLE[String(S.seismic)]||[]; const r=rows.find(r=>S.height<=r.h); ppVal=r?r.pp:(rows.length?rows.slice(-1)[0].pp:'–'); }
+  else if(S.variante==='LMC'){ const rows=LMC_TABLE[String(S.seismic)]||[]; const r=rows.find(r=>S.height<=r.h); ppVal=r?r.pp:(rows.length?rows.slice(-1)[0].pp:'–'); }
+  row('Palettenplatz', ppVal);
   row(lbl?'Seismic Zone':'Erdbebenzone', document.getElementById('seismic').selectedOptions[0].text);
-  row(lbl?'Height (m)':'Höhe (m)',       S.height);
+  row(lbl?'Height (mm)':'Höhe (mm)', S.height);
 
   sect(lbl ? 'In Development' : 'In Entwicklung');
   const inDev = lbl ? 'in development' : 'in Entwicklung';
@@ -693,8 +723,7 @@ function exportPDF(){
 
   doc.setFont('helvetica','italic'); doc.setFontSize(8); doc.setTextColor(150,150,150);
   doc.text('www.stopa.com', 14, 285);
-  doc.text(lbl?'Generated by STOPA Column Selection Tool':'Erstellt mit STOPA Stützenauswahl-Werkzeug', 196, 285, {align:'right'});
-
+  doc.text('Developed by Amin Khodarahmi', 196, 285, {align:'right'});
   doc.save('STOPA_Stuetzenauswahl.pdf');
 }
 
@@ -765,31 +794,36 @@ function exportTablePDF(){
   });
 
   let y = 28;
-  const colW = [22,14,28,28,26,22,20,14];
+  // Landscape A4 = 297mm wide, usable 269mm (14 margin each side)
+  const colW = [30,18,36,36,34,28,24,18]; // total = 224mm, padded evenly
   const x0 = 14;
+  let cx;
   // Header row
-  doc.setFillColor(30,60,114); doc.setTextColor(255,255,255); doc.setFontSize(8); doc.setFont('helvetica','bold');
-  let cx = x0;
-  colW.forEach((w,i) => { doc.rect(cx,y,w,7,'F'); doc.text(headers[i], cx+2, y+5); cx+=w; });
-  y+=7;
+  doc.setFillColor(30,60,114);
+  cx = x0;
+  colW.forEach(w => { doc.rect(cx,y,w,8,'F'); cx+=w; });
+  doc.setTextColor(255,255,255); doc.setFontSize(8); doc.setFont('helvetica','bold');
+  cx = x0;
+  colW.forEach((w,i) => { doc.text(headers[i], cx+2, y+5.5); cx+=w; });
+  y+=8;
   doc.setFont('helvetica','normal'); doc.setTextColor(30,30,30);
   rows.forEach((row,ri) => {
-    if(y > 195){ doc.addPage(); y=14; }
-    doc.setFillColor(ri%2===0?245:255,ri%2===0?247:255,ri%2===0?250:255);
-    cx = x0; colW.forEach(w => { doc.rect(cx,y,w,6,'F'); cx+=w; });
+    if(y > 190){ doc.addPage(); y=14; }
+    doc.setFillColor(ri%2===0?244:255,ri%2===0?247:255,ri%2===0?251:255);
+    cx = x0; colW.forEach(w => { doc.rect(cx,y,w,7,'F'); cx+=w; });
     cx = x0;
-    row.forEach((cell,i) => { doc.text(String(cell), cx+2, y+4); cx+=colW[i]; });
-    y+=6;
+    row.forEach((cell,i) => { doc.text(String(cell), cx+2, y+4.8); cx+=colW[i]; });
+    y+=7;
   });
   doc.setFont('helvetica','italic'); doc.setFontSize(7); doc.setTextColor(150,150,150);
-  doc.text('www.stopa.com', 14, 205);
+  doc.text('www.stopa.com | Developed by Amin Khodarahmi', 14, 205);
   doc.save('STOPA_Vollstaendige_Tabelle.pdf');
 }
 function closeModal(){ document.getElementById('modal').classList.remove('open'); }
 document.getElementById('modal').addEventListener('click', e=>{ if(e.target===e.currentTarget) closeModal(); });
 
 /* ── INIT ── */
-window.addEventListener('DOMContentLoaded', () => { updateDropdownsForVariante(); calc(); });
+window.addEventListener('DOMContentLoaded', () => { setLang('de'); updateDropdownsForVariante(); calc(); });
 </script>
 </body>
 </html>
