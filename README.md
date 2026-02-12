@@ -2,7 +2,7 @@
 
 An interactive tool for selecting HEB steel column profiles for automated STOPA high-bay warehouse systems.
 
-**🔗 Live Demo:** [aminkhodarahmi.github.io/st-tzen-Auslegung](https://aminkhodarahmi.github.io/st-tzen-Auslegung/)
+**🔗 [Live Demo](https://aminkhodarahmi.github.io/st-tzen-Auslegung/)**
 
 ## Features
 
