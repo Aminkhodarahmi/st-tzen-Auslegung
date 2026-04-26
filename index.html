@@ -112,7 +112,9 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
   text-transform:uppercase;color:rgba(255,255,255,.55);
   border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:4px;margin:8px 0 4px;}
 .r-row{display:flex;justify-content:space-between;align-items:baseline;
-  padding:4px 0;border-bottom:1px solid rgba(255,255,255,.12);}
+  padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);}
+.r-row:nth-child(even){background:rgba(255,255,255,.04);}
+body.dark .r-row:nth-child(even){background:rgba(255,255,255,.06);}
 .r-row:last-child{border-bottom:none;}
 .r-lbl{font-size:12px;color:rgba(255,255,255,.75);}
 .r-val{font-size:13px;font-weight:700;color:#fff;}
@@ -343,15 +345,18 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
         <div class="r-row"><span class="r-lbl" data-en="Type" data-de="Typ">Type</span><span class="r-val" id="r-type">GF</span></div>
         <div class="r-row"><span class="r-lbl">Variante</span><span class="r-val" id="r-var">LMS</span></div>
 
-        <div class="r-section" data-en="COLUMN SPECIFICATION" data-de="STÜTZENSPEZIFIKATION">COLUMN SPECIFICATION</div>
+        <div class="r-section" data-en="COLUMN SPECIFICATION" data-de="STÜTZENSPEZIFIKATION">STÜTZENSPEZIFIKATION</div>
         <div class="r-row"><span class="r-lbl" data-en="Column Section" data-de="Stütze">Stütze</span><span class="r-val big" id="r-stutze">HEB 180</span></div>
         <div class="r-row"><span class="r-lbl">Material</span><span class="r-val" id="r-mat">S355</span></div>
-        <div class="r-row"><span class="r-lbl">Palettenplatz</span><span class="r-val" id="r-palet">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Height" data-de="Höhe">Höhe</span><span class="r-val" id="r-hoehe">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Pallet Places" data-de="Anzahl der Plaetten">Anzahl der Plaetten</span><span class="r-val" id="r-palet">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Bracing" data-de="Verband">Verband</span><span class="r-val" id="r-verband">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Cross Beam" data-de="Querträger">Querträger</span><span class="r-val" id="r-quertraeger">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Roof Beam" data-de="Dachträger">Dachträger</span><span class="r-val" id="r-dachtraeger">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Base Plate" data-de="fußplatte">fußplatte</span><span class="r-val" id="r-fussplatte">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Anchor Bolt" data-de="Dübel">Dübel</span><span class="r-val" id="r-duebel">–</span></div>
+        <div class="r-row"><span class="r-lbl" data-en="Shear Pin" data-de="Schubdorn">Schubdorn</span><span class="r-val" id="r-schubdorn">–</span></div>
 
-        <div class="r-section" data-en="IN DEVELOPMENT" data-de="IN ENTWICKLUNG">IN DEVELOPMENT</div>
-        <div class="r-row"><span class="r-lbl">Schubdorn</span>    <span class="r-val dim" data-en="in development" data-de="in Entwicklung">in development</span></div>
-        <div class="r-row"><span class="r-lbl">Ankerbolzen</span>  <span class="r-val dim" data-en="in development" data-de="in Entwicklung">in development</span></div>
-        <div class="r-row"><span class="r-lbl">Gewicht</span>      <span class="r-val dim" data-en="in development" data-de="in Entwicklung">in development</span></div>
       </div>
 
       <!-- Action buttons -->
@@ -359,17 +364,6 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
         <button class="abtn btn-reset" onclick="resetAll()">🔄 <span data-en="Reset" data-de="Zurücksetzen">Reset</span></button>
         <button class="abtn btn-pdf"   onclick="exportPDF()">📄 <span data-en="Export PDF" data-de="PDF exportieren">Export PDF</span></button>
         <button class="abtn btn-tbl"   onclick="openModal()">📋 <span data-en="Full Data Table" data-de="Vollständige Datentabelle">Full Data Table</span></button>
-      </div>
-
-      <!-- Info box -->
-      <div class="info-box">
-        <strong data-en="How it works:" data-de="Funktionsweise:">How it works:</strong>
-        <ul>
-          <li><strong>Lager / Lager Type:</strong> <span data-en="Only TKL Flex · GF is fully implemented. Other configurations are under development." data-de="Nur TKL Flex · GF ist vollständig implementiert. Weitere Konfigurationen befinden sich in Entwicklung.">Only TKL Flex · GF fully implemented. Others under development.</span></li>
-          <li><strong>Variante:</strong> <span data-en="Structural rack system (single-depth, mobile, or double)." data-de="Regalsystem-Variante (einfachtief, fahrbar oder doppelt).">Structural rack system (single-depth, mobile, or double).</span></li>
-          <li><strong data-en="Seismic Zone:" data-de="Erdbebenzone:">Seismic Zone:</strong> <span data-en="Higher acceleration → heavier column required." data-de="Höhere Bodenbeschleunigung → schwerere Stütze erforderlich.">Higher acceleration → heavier column required.</span></li>
-          <li><strong data-en="Height:" data-de="Höhe:">Height:</strong> <span data-en="Larger effective length increases buckling risk → larger section." data-de="Größere Knicklänge erhöht Knickgefahr → größeres Profil erforderlich.">Larger effective length → larger section.</span></li>
-        </ul>
       </div>
 
     </div><!-- /right -->
@@ -393,10 +387,19 @@ body.dark .dev-notice{background:#2d200a;border-color:#f59e0b;color:#fcd34d;}
     <table class="tbl" id="data-table">
       <thead>
         <tr>
-          <th>Lager</th><th data-en="Type" data-de="Typ">Type</th><th>Variante</th>
-          <th data-en="Seismic Zone" data-de="Erdbebenzone">Seismic Zone</th>
-          <th data-en="Height (mm)" data-de="Höhe (mm)">Height (mm)</th>
-          <th>Stütze</th><th>Material</th><th>PP</th>
+          <th>Lager</th>
+          <th data-en="Type" data-de="Typ">Typ</th>
+          <th>Variante</th>
+          <th data-en="Seismic" data-de="Erdbeben">Erdbeben</th>
+          <th data-en="Height" data-de="Höhe">Höhe</th>
+          <th data-en="Pallet Places" data-de="Anzahl der Plaetten">Anzahl der Plaetten</th>
+          <th data-en="Profile" data-de="Profil">Profil</th>
+          <th data-en="Bracing" data-de="Verband">Verband</th>
+          <th data-en="Cross Beam" data-de="Querträger">Querträger</th>
+          <th data-en="Roof Beam" data-de="Dachträger">Dachträger</th>
+          <th data-en="Base Plate" data-de="fußplatte">fußplatte</th>
+          <th data-en="Anchor Bolt" data-de="Dübel">Dübel</th>
+          <th data-en="Shear Pin" data-de="Schubdorn">Schubdorn</th>
         </tr>
       </thead>
       <tbody id="tbl-body"></tbody>
@@ -419,7 +422,7 @@ function setLang(l){
 }
 
 /* ── STATE ── */
-const S = { lager:'TKL Flex', lagerType:'GF', variante:'LMS', seismic:0.25, height:24 };
+const S = { lager:'TKL Flex', lagerType:'GF', variante:'LMS', seismic:0.25, height:7020 };
 
 function isDev(){ return S.lager !== 'TKL Flex' || S.lagerType !== 'GF'; }
 
@@ -459,31 +462,52 @@ function onHoehe(){
 
 /* ── DOPPEL LOOKUP TABLE ── */
 const DOPPEL_TABLE = {
-  '0.25': [ {h:6175, pp:24, p:'HEB 180'}, {h:6915, pp:28, p:'HEB 200'}, {h:7900, pp:33, p:'HEB 220'} ]
+  '0.25': [{h:6465,pp:24,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:31,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '0.5': [{h:6095,pp:22,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:31,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '0.75': [{h:5170,pp:17,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7020,pp:27,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:7760,pp:31,p:'HEB 300',v:'UNP 120',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1': [{h:4430,pp:13,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:6095,pp:22,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:7760,pp:31,p:'HEB 300',v:'UNP 120',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.25': [{h:3875,pp:10,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:5355,pp:18,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:7020,pp:27,p:'HEB 300',v:'UNP 120',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.5': [{h:3690,pp:9,p:'HEB 180',v:'D27',q:'HEB 140',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4985,pp:16,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:6465,pp:24,p:'HEB 300',v:'UNP 120',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.75': [{h:3505,pp:8,p:'HEB 180',v:'D27',q:'HEB 140',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4800,pp:15,p:'HEB 240',v:'D30',q:'HEB 200',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:6280,pp:23,p:'HEB 300',v:'UNP 120',q:'HEB 220',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2': [{h:3320,pp:7,p:'HEB 180',v:'D27',q:'HEB 140',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4615,pp:14,p:'HEB 240',v:'D30',q:'HEB 200',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5910,pp:21,p:'HEB 300',v:'UNP 120',q:'HEB 220',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2.25': [{h:3135,pp:6,p:'HEB 180',v:'D27',q:'HEB 140',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4430,pp:13,p:'HEB 240',v:'D30',q:'HEB 200',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5540,pp:19,p:'HEB 300',v:'UNP 120',q:'HEB 220',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2.5': [{h:3135,pp:6,p:'HEB 180',v:'D27',q:'HEB 140',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4245,pp:12,p:'HEB 240',v:'D30',q:'HEB 200',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5540,pp:19,p:'HEB 300',v:'UNP 120',q:'HEB 220',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}]
 };
 
 /* ── LMS LOOKUP TABLE ── */
 const LMS_TABLE = {
-  '0.25':  [ {h:7085, pp:23, p:'HEB 180'}, {h:8010, pp:28, p:'HEB 200'} ],
-  '0.5':   [ {h:6345, pp:19, p:'HEB 180'}, {h:7270, pp:24, p:'HEB 200'}, {h:8010, pp:28, p:'HEB 220'} ],
-  '0.75':  [ {h:5420, pp:14, p:'HEB 180'}, {h:6160, pp:18, p:'HEB 200'}, {h:7085, pp:23, p:'HEB 220'}, {h:7625, pp:27, p:'HEB 240'}, {h:8010, pp:28, p:'HEB 260'} ],
-  '1':    [ {h:5050, pp:12, p:'HEB 180'}, {h:5420, pp:14, p:'HEB 200'}, {h:5975, pp:17, p:'HEB 220'} ]
+  '0.25': [{h:7020,pp:21,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:25,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '0.5': [{h:6650,pp:19,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:25,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '0.75': [{h:5725,pp:14,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:25,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1': [{h:5170,pp:11,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:6650,pp:19,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:7760,pp:25,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.25': [{h:4430,pp:7,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:5725,pp:14,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:6835,pp:20,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.5': [{h:4245,pp:6,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:5170,pp:11,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:6095,pp:16,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.75': [{h:4060,pp:5,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4985,pp:10,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5910,pp:15,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2': [{h:3875,pp:4,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4800,pp:9,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5540,pp:13,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2.25': [{h:3690,pp:3,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4615,pp:8,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5355,pp:12,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2.5': [{h:3690,pp:3,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4615,pp:8,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5355,pp:12,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}]
 };
 
 /* ── LMC LOOKUP TABLE ── */
 const LMC_TABLE = {
-  '0.25':  [ {h:6855, pp:25, p:'HEB 180'}, {h:7780, pp:30, p:'HEB 200'}, {h:7975, pp:31, p:'HEB 220'} ],
-  '0.5':   [ {h:6670, pp:24, p:'HEB 180'}, {h:7595, pp:27, p:'HEB 200'}, {h:7975, pp:31, p:'HEB 220'} ],
-  '0.75':  [ {h:6300, pp:22, p:'HEB 180'}, {h:7225, pp:27, p:'HEB 200'}, {h:7975, pp:31, p:'HEB 220'} ],
-  '1':     [ {h:5930, pp:20, p:'HEB 180'}, {h:6855, pp:25, p:'HEB 200'}, {h:7780, pp:30, p:'HEB 220'}, {h:7975, pp:31, p:'HEB 240'} ],
-  '1.25':  [ {h:5375, pp:17, p:'HEB 180'}, {h:6300, pp:22, p:'HEB 200'}, {h:7225, pp:27, p:'HEB 220'}, {h:7965, pp:31, p:'HEB 240'} ],
-  '1.5':   [ {h:5005, pp:15, p:'HEB 180'}, {h:5745, pp:19, p:'HEB 200'}, {h:6485, pp:23, p:'HEB 220'}, {h:7410, pp:28, p:'HEB 240'}, {h:7965, pp:31, p:'HEB 260'} ]
+  '0.25': [{h:6650,pp:22,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:28,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 *30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '0.5': [{h:5910,pp:18,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:28,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '0.75': [{h:5355,pp:15,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:7760,pp:28,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1': [{h:4800,pp:12,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:6465,pp:21,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:7760,pp:28,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.25': [{h:3875,pp:7,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:5355,pp:15,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:6650,pp:22,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.5': [{h:3690,pp:6,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4800,pp:12,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:6095,pp:19,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '1.75': [{h:3690,pp:6,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4615,pp:11,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5725,pp:17,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2': [{h:3505,pp:5,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4430,pp:10,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5540,pp:16,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2.25': [{h:3320,pp:4,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4245,pp:9,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5355,pp:15,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}],
+  '2.5': [{h:3320,pp:4,p:'HEB 180',v:'D27',q:'HEB 120',d:'HEA 120',f:'300 * 500 * 25',du:'3 * M24 * 170mm',s:'Nein'},{h:4060,pp:8,p:'HEB 240',v:'D30',q:'HEB 160',d:'HEA 160',f:'370 * 580 * 30',du:'3 * M24 * 300mm',s:'Kreisförmige Hohlprofil 114.3*8*200'},{h:5170,pp:14,p:'HEB 300',v:'D36',q:'HEB 200',d:'HEA 200',f:'370 * 620 * 30',du:'3 * M30 * 480mm',s:'Kreisförmige Hohlprofil 114.3*8*200'}]
 };
 
 /* ── CALC ── */
 function getHEB(){
   if(S.variante === 'DOPPEL'){
-    const rows = DOPPEL_TABLE['0.25'];
+    const key = String(S.seismic);
+    const rows = DOPPEL_TABLE[key];
+    if(!rows) return 'N/A';
     const match = rows.find(r => S.height <= r.h);
     return match ? match.p : rows[rows.length-1].p;
   }
@@ -511,19 +535,31 @@ function updateDropdownsForVariante(){
   const hoeheSel   = document.getElementById('hoehe');
 
   if(S.variante === 'DOPPEL'){
-    seismicSel.innerHTML = '<option value="0.25">0.00 – 0.25</option>';
+    seismicSel.innerHTML = `
+      <option value="0.25">0.00 – 0.25</option>
+      <option value="0.5">0.25 – 0.50</option>
+      <option value="0.75">0.50 – 0.75</option>
+      <option value="1">0.75 – 1.00</option>
+      <option value="1.25">1.00 – 1.25</option>
+      <option value="1.5">1.25 – 1.50</option>
+      <option value="1.75">1.50 – 1.75</option>
+      <option value="2">1.75 – 2.00</option>
+      <option value="2.25">2.00 – 2.25</option>
+      <option value="2.5">2.25 – 2.50</option>`;
     S.seismic = 0.25;
-    hoeheSel.innerHTML = `
-      <option value="6175">6175 mm</option>
-      <option value="6915">6915 mm</option>
-      <option value="7900">7900 mm</option>`;
-    S.height = 6175;
+    _updateDOPPELHoehe('0.25');
   } else if(S.variante === 'LMS'){
     seismicSel.innerHTML = `
       <option value="0.25">0.00 – 0.25</option>
       <option value="0.5">0.25 – 0.50</option>
       <option value="0.75">0.50 – 0.75</option>
-      <option value="1">0.75 – 1.00</option>`;
+      <option value="1">0.75 – 1.00</option>
+      <option value="1.25">1.00 – 1.25</option>
+      <option value="1.5">1.25 – 1.50</option>
+      <option value="1.75">1.50 – 1.75</option>
+      <option value="2">1.75 – 2.00</option>
+      <option value="2.25">2.00 – 2.25</option>
+      <option value="2.5">2.25 – 2.50</option>`;
     S.seismic = 0.25;
     _updateLMSHoehe('0.25');
   } else if(S.variante === 'LMC'){
@@ -533,7 +569,11 @@ function updateDropdownsForVariante(){
       <option value="0.75">0.50 – 0.75</option>
       <option value="1">0.75 – 1.00</option>
       <option value="1.25">1.00 – 1.25</option>
-      <option value="1.5">1.25 – 1.50</option>`;
+      <option value="1.5">1.25 – 1.50</option>
+      <option value="1.75">1.50 – 1.75</option>
+      <option value="2">1.75 – 2.00</option>
+      <option value="2.25">2.00 – 2.25</option>
+      <option value="2.5">2.25 – 2.50</option>`;
     S.seismic = 0.25;
     _updateLMCHoehe('0.25');
   } else {
@@ -575,6 +615,13 @@ function _updateLMCHoehe(seismicKey){
   if(rows.length) S.height = rows[0].h;
 }
 
+function _updateDOPPELHoehe(seismicKey){
+  const hoeheSel = document.getElementById('hoehe');
+  const rows = DOPPEL_TABLE[seismicKey] || [];
+  hoeheSel.innerHTML = rows.map(r => `<option value="${r.h}">${r.h} mm</option>`).join('');
+  if(rows.length) S.height = rows[0].h;
+}
+
 let lastVariante = 'LMS';
 
 function calc(){
@@ -588,11 +635,12 @@ function calc(){
   }
   S.seismic = parseFloat(document.getElementById('seismic').value);
 
-  // For LMS/LMC: when seismic changes, rebuild hoehe options
-  if(S.variante === 'LMS' || S.variante === 'LMC'){
+  // For LMS/LMC/DOPPEL: when seismic changes, rebuild hoehe options
+  if(S.variante === 'LMS' || S.variante === 'LMC' || S.variante === 'DOPPEL'){
     const currentHoehe = document.getElementById('hoehe').value;
     if(S.variante === 'LMS') _updateLMSHoehe(String(S.seismic));
-    else _updateLMCHoehe(String(S.seismic));
+    else if(S.variante === 'LMC') _updateLMCHoehe(String(S.seismic));
+    else _updateDOPPELHoehe(String(S.seismic));
     // Try to keep same value if still available
     const hoeheSel = document.getElementById('hoehe');
     const exists = Array.from(hoeheSel.options).some(o => o.value === currentHoehe);
@@ -618,25 +666,43 @@ function calc(){
 
   if(dev){
     document.getElementById('r-stutze').textContent = '–';
-    document.getElementById('r-palet').textContent  = '–';
+    document.getElementById('r-mat').textContent = '–';
+    document.getElementById('r-hoehe').textContent = '–';
+    document.getElementById('r-palet').textContent = '–';
+    document.getElementById('r-verband').textContent = '–';
+    document.getElementById('r-quertraeger').textContent = '–';
+    document.getElementById('r-dachtraeger').textContent = '–';
+    document.getElementById('r-fussplatte').textContent = '–';
+    document.getElementById('r-duebel').textContent = '–';
+    document.getElementById('r-schubdorn').textContent = '–';
   } else {
-    const heb = getHEB();
-    document.getElementById('r-stutze').textContent = heb;
-    // PP from lookup tables
-    if(S.variante === 'DOPPEL'){
-      const rows = DOPPEL_TABLE['0.25'];
-      const match = rows.find(r => S.height <= r.h);
-      document.getElementById('r-palet').textContent = match ? match.pp : rows[rows.length-1].pp;
-    } else if(S.variante === 'LMS'){
-      const rows = LMS_TABLE[String(S.seismic)] || [];
-      const match = rows.find(r => S.height <= r.h);
-      document.getElementById('r-palet').textContent = match ? match.pp : (rows.length ? rows[rows.length-1].pp : '–');
-    } else if(S.variante === 'LMC'){
-      const rows = LMC_TABLE[String(S.seismic)] || [];
-      const match = rows.find(r => S.height <= r.h);
-      document.getElementById('r-palet').textContent = match ? match.pp : (rows.length ? rows[rows.length-1].pp : '–');
+    // Get current row from lookup table
+    const table = S.variante==='DOPPEL' ? DOPPEL_TABLE : S.variante==='LMS' ? LMS_TABLE : LMC_TABLE;
+    const rows = table[String(S.seismic)] || [];
+    const match = rows.find(r => S.height <= r.h) || (rows.length ? rows[rows.length-1] : null);
+    
+    if(match){
+      document.getElementById('r-stutze').textContent = match.p || '–';
+      document.getElementById('r-mat').textContent = 'S355';
+      document.getElementById('r-hoehe').textContent = match.h ? `${match.h} mm` : '–';
+      document.getElementById('r-palet').textContent = match.pp || '–';
+      document.getElementById('r-verband').textContent = match.v || '–';
+      document.getElementById('r-quertraeger').textContent = match.q || '–';
+      document.getElementById('r-dachtraeger').textContent = match.d || '–';
+      document.getElementById('r-fussplatte').textContent = match.f || '–';
+      document.getElementById('r-duebel').textContent = match.du || '–';
+      document.getElementById('r-schubdorn').textContent = match.s || '–';
     } else {
-      document.getElementById('r-palet').textContent = PALET[S.variante] || '–';
+      document.getElementById('r-stutze').textContent = '–';
+      document.getElementById('r-mat').textContent = 'S355';
+      document.getElementById('r-hoehe').textContent = '–';
+      document.getElementById('r-palet').textContent = '–';
+      document.getElementById('r-verband').textContent = '–';
+      document.getElementById('r-quertraeger').textContent = '–';
+      document.getElementById('r-dachtraeger').textContent = '–';
+      document.getElementById('r-fussplatte').textContent = '–';
+      document.getElementById('r-duebel').textContent = '–';
+      document.getElementById('r-schubdorn').textContent = '–';
     }
   }
 }
@@ -704,22 +770,26 @@ function exportPDF(){
   row('Variante',  S.variante);
 
   sect(lbl ? 'Column Specification' : 'Stützenspezifikation');
-  row(lbl ? 'Column Section' : 'Stütze', getHEB(), true);
-  row('Material', 'S355');
-  // Get PP from lookup tables
-  let ppVal = '–';
-  if(S.variante==='DOPPEL'){ const r=DOPPEL_TABLE['0.25'].find(r=>S.height<=r.h); ppVal=r?r.pp:DOPPEL_TABLE['0.25'].slice(-1)[0].pp; }
-  else if(S.variante==='LMS'){ const rows=LMS_TABLE[String(S.seismic)]||[]; const r=rows.find(r=>S.height<=r.h); ppVal=r?r.pp:(rows.length?rows.slice(-1)[0].pp:'–'); }
-  else if(S.variante==='LMC'){ const rows=LMC_TABLE[String(S.seismic)]||[]; const r=rows.find(r=>S.height<=r.h); ppVal=r?r.pp:(rows.length?rows.slice(-1)[0].pp:'–'); }
-  row('Palettenplatz', ppVal);
+  
+  // Get current row from lookup table
+  const table = S.variante==='DOPPEL' ? DOPPEL_TABLE : S.variante==='LMS' ? LMS_TABLE : LMC_TABLE;
+  const rows = table[String(S.seismic)] || [];
+  const match = rows.find(r => S.height <= r.h) || (rows.length ? rows[rows.length-1] : null);
+  
+  if(match){
+    row(lbl?'Column Section':'Stütze', match.p || '–', true);
+    row('Material', 'S355');
+    row(lbl?'Height':'Höhe', `${match.h} mm`);
+    row(lbl?'Pallet Places':'Anzahl der Plaetten', match.pp || '–');
+    row(lbl?'Bracing':'Verband', match.v || '–');
+    row(lbl?'Cross Beam':'Querträger', match.q || '–');
+    row(lbl?'Roof Beam':'Dachträger', match.d || '–');
+    row(lbl?'Base Plate':'fußplatte', match.f || '–');
+    row(lbl?'Anchor Bolt':'Dübel', match.du || '–');
+    row(lbl?'Shear Pin':'Schubdorn', match.s || '–');
+  }
+  
   row(lbl?'Seismic Zone':'Erdbebenzone', document.getElementById('seismic').selectedOptions[0].text);
-  row(lbl?'Height (mm)':'Höhe (mm)', S.height);
-
-  sect(lbl ? 'In Development' : 'In Entwicklung');
-  const inDev = lbl ? 'in development' : 'in Entwicklung';
-  row('Schubdorn',   inDev);
-  row('Ankerbolzen', inDev);
-  row('Gewicht',     inDev);
 
   doc.setFont('helvetica','italic'); doc.setFontSize(8); doc.setTextColor(150,150,150);
   doc.text('www.stopa.com', 14, 285);
@@ -729,10 +799,8 @@ function exportPDF(){
 
 /* ── FULL TABLE MODAL ── */
 const VARIANTEN   = ['LMS','LMC','DOPPEL'];
-const LMC_SEISMIC_LABELS = {'0.25':'0.00–0.25','0.5':'0.25–0.50','0.75':'0.50–0.75','1':'0.75–1.00','1.25':'1.00–1.25','1.5':'1.25–1.50'};
-const LMS_SEISMIC_LABELS = {'0.25':'0.00–0.25','0.5':'0.25–0.50','0.75':'0.50–0.75','1':'0.75–1.00'};
-const LMC_KEYS_ORDERED = ['0.25','0.5','0.75','1','1.25','1.5'];
-const LMS_KEYS_ORDERED = ['0.25','0.5','0.75','1'];
+const SEISMIC_LABELS = {'0.25':'0.00–0.25','0.5':'0.25–0.50','0.75':'0.50–0.75','1':'0.75–1.00','1.25':'1.00–1.25','1.5':'1.25–1.50','1.75':'1.50–1.75','2':'1.75–2.00','2.25':'2.00–2.25','2.5':'2.25–2.50'};
+const SEISMIC_KEYS_ORDERED = ['0.25','0.5','0.75','1','1.25','1.5','1.75','2','2.25','2.5'];
 
 function openModal(){
   const tbody = document.getElementById('tbl-body');
@@ -740,32 +808,17 @@ function openModal(){
   VARIANTEN.forEach(vt => {
     const tr0 = document.createElement('tr');
     tr0.className = 'head-row';
-    tr0.innerHTML = `<td colspan="8">Variante: ${vt}</td>`;
+    tr0.innerHTML = `<td colspan="13">Variante: ${vt}</td>`;
     tbody.appendChild(tr0);
 
-    if(vt === 'DOPPEL'){
-      DOPPEL_TABLE['0.25'].forEach(row => {
+    const table = vt==='DOPPEL' ? DOPPEL_TABLE : vt==='LMS' ? LMS_TABLE : LMC_TABLE;
+    SEISMIC_KEYS_ORDERED.forEach(key => {
+      (table[key]||[]).forEach(row => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>TKL Flex</td><td>GF</td><td>DOPPEL-WAGEN</td><td>0.00–0.25</td><td>${row.h}</td><td><strong>${row.p}</strong></td><td>S355</td><td>${row.pp}</td>`;
+        tr.innerHTML = `<td>TKL Flex</td><td>GF</td><td>${vt}</td><td>${SEISMIC_LABELS[key]}</td><td>${row.h}</td><td>${row.pp}</td><td><strong>${row.p}</strong></td><td>${row.v||'–'}</td><td>${row.q||'–'}</td><td>${row.d||'–'}</td><td>${row.f||'–'}</td><td>${row.du||'–'}</td><td>${row.s||'–'}</td>`;
         tbody.appendChild(tr);
       });
-    } else if(vt === 'LMS'){
-      LMS_KEYS_ORDERED.forEach(key => {
-        (LMS_TABLE[key]||[]).forEach(row => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td>TKL Flex</td><td>GF</td><td>LMS</td><td>${LMS_SEISMIC_LABELS[key]}</td><td>${row.h}</td><td><strong>${row.p}</strong></td><td>S355</td><td>${row.pp}</td>`;
-          tbody.appendChild(tr);
-        });
-      });
-    } else if(vt === 'LMC'){
-      LMC_KEYS_ORDERED.forEach(key => {
-        (LMC_TABLE[key]||[]).forEach(row => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `<td>TKL Flex</td><td>GF</td><td>LMC</td><td>${LMC_SEISMIC_LABELS[key]}</td><td>${row.h}</td><td><strong>${row.p}</strong></td><td>S355</td><td>${row.pp}</td>`;
-          tbody.appendChild(tr);
-        });
-      });
-    }
+    });
   });
   document.getElementById('modal').classList.add('open');
 }
@@ -781,39 +834,44 @@ function exportTablePDF(){
   doc.setFontSize(8); doc.setFont('helvetica','normal');
   doc.text(new Date().toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'}), 283, 13, {align:'right'});
 
-  const headers = ['Lager','Type','Variante','Seismic Zone','Height (mm)','Stütze','Material','PP'];
+  const headers = ['Lager','Typ','Variante','Erdbeben','Höhe','Anzahl der Plaetten','Profil','Verband','Querträger','Dachträger','fußplatte','Dübel','Schubdorn'];
   const rows = [];
   VARIANTEN.forEach(vt => {
-    if(vt==='DOPPEL'){
-      DOPPEL_TABLE['0.25'].forEach(r => rows.push(['TKL Flex','GF','DOPPEL-WAGEN','0.00–0.25',r.h,r.p,'S355',r.pp]));
-    } else if(vt==='LMS'){
-      LMS_KEYS_ORDERED.forEach(k => (LMS_TABLE[k]||[]).forEach(r => rows.push(['TKL Flex','GF','LMS',LMS_SEISMIC_LABELS[k],r.h,r.p,'S355',r.pp])));
-    } else if(vt==='LMC'){
-      LMC_KEYS_ORDERED.forEach(k => (LMC_TABLE[k]||[]).forEach(r => rows.push(['TKL Flex','GF','LMC',LMC_SEISMIC_LABELS[k],r.h,r.p,'S355',r.pp])));
-    }
+    const table = vt==='DOPPEL' ? DOPPEL_TABLE : vt==='LMS' ? LMS_TABLE : LMC_TABLE;
+    SEISMIC_KEYS_ORDERED.forEach(k => {
+      (table[k]||[]).forEach(r => rows.push(['TKL Flex','GF',vt,SEISMIC_LABELS[k],r.h,r.pp,r.p,r.v||'–',r.q||'–',r.d||'–',r.f||'–',r.du||'–',r.s||'–']));
+    });
   });
 
   let y = 28;
-  // Landscape A4 = 297mm wide, usable 269mm (14 margin each side)
-  const colW = [30,18,36,36,34,28,24,18]; // total = 224mm, padded evenly
+  const colW = [16,10,18,20,14,24,15,16,18,18,20,22,48]; // Dübel increased to 22mm
   const x0 = 14;
   let cx;
   // Header row
   doc.setFillColor(30,60,114);
   cx = x0;
   colW.forEach(w => { doc.rect(cx,y,w,8,'F'); cx+=w; });
-  doc.setTextColor(255,255,255); doc.setFontSize(8); doc.setFont('helvetica','bold');
+  doc.setTextColor(255,255,255); doc.setFontSize(7); doc.setFont('helvetica','bold');
   cx = x0;
-  colW.forEach((w,i) => { doc.text(headers[i], cx+2, y+5.5); cx+=w; });
+  colW.forEach((w,i) => { doc.text(headers[i], cx+1, y+5.5); cx+=w; });
   y+=8;
-  doc.setFont('helvetica','normal'); doc.setTextColor(30,30,30);
+  doc.setFont('helvetica','normal'); doc.setTextColor(30,30,30); doc.setFontSize(6);
   rows.forEach((row,ri) => {
-    if(y > 190){ doc.addPage(); y=14; }
+    if(y > 185){ doc.addPage(); y=14; 
+      // Re-draw header on new page
+      doc.setFillColor(30,60,114); doc.setTextColor(255,255,255); doc.setFontSize(7); doc.setFont('helvetica','bold');
+      cx = x0; colW.forEach(w => { doc.rect(cx,y,w,8,'F'); cx+=w; });
+      cx = x0; colW.forEach((w,i) => { doc.text(headers[i], cx+1, y+5.5); cx+=w; });
+      y+=8; doc.setFont('helvetica','normal'); doc.setTextColor(30,30,30); doc.setFontSize(6);
+    }
     doc.setFillColor(ri%2===0?244:255,ri%2===0?247:255,ri%2===0?251:255);
-    cx = x0; colW.forEach(w => { doc.rect(cx,y,w,7,'F'); cx+=w; });
+    cx = x0; colW.forEach(w => { doc.rect(cx,y,w,6,'F'); cx+=w; });
     cx = x0;
-    row.forEach((cell,i) => { doc.text(String(cell), cx+2, y+4.8); cx+=colW[i]; });
-    y+=7;
+    row.forEach((cell,i) => { 
+      const txt = String(cell).substring(0,25); // Truncate long text
+      doc.text(txt, cx+1, y+4); cx+=colW[i]; 
+    });
+    y+=6;
   });
   doc.setFont('helvetica','italic'); doc.setFontSize(7); doc.setTextColor(150,150,150);
   doc.text('www.stopa.com | Developed by Amin Khodarahmi', 14, 205);
